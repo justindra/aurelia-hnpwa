@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "sourceRoot": "src",
     "sourceMap": true,
-    "allowJs": true,
+    "allowJs": false,
     "baseUrl": "src",
     "skipLibCheck": true,
     "lib": [

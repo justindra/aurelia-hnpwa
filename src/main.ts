@@ -1,8 +1,8 @@
 /// <reference types="aurelia-loader-webpack/src/webpack-hot-interface"/>
 // we want font-awesome to load as soon as possible to show the fa-spinner
-import {Aurelia} from 'aurelia-framework'
+import { Aurelia } from 'aurelia-framework';
 import environment from './environment';
-import {PLATFORM} from 'aurelia-pal';
+import { PLATFORM } from 'aurelia-pal';
 import * as Bluebird from 'bluebird';
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
