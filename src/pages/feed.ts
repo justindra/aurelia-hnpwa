@@ -20,6 +20,10 @@ export class Feed implements RoutableComponentDetermineActivationStrategy {
     API[this.feedType]()
       .then((res) => {
         this.newsItems = res;
+      })
+      .catch((err) => {
+        console.error(err);
+        this.newsItems = [];
       });
   }
 

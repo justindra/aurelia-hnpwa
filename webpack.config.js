@@ -7,6 +7,7 @@ const project = require('./aurelia_project/aurelia.json');
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
 const { ProvidePlugin } = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -124,6 +125,12 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
     })),
     ...when(production || server, new CopyWebpackPlugin([
       { from: 'static', to: outDir }])),
-    ...when(analyze, new BundleAnalyzerPlugin())
+    ...when(analyze, new BundleAnalyzerPlugin()),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: './src/sw.js',
+      // make sure we also cache the static files
+      globDirectory: '.',
+      globPatterns: ['static/*']
+    })
   ]
 });

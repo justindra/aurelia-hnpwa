@@ -5,6 +5,24 @@
     <title><%- htmlWebpackPlugin.options.metadata.title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>">
+
+    <!-- Images -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ed2b88">
+    <meta name="msapplication-TileColor" content="#ed2b88">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Facebook OpenGraph -->
+    <meta property="og:image" content="/og-image.jpg">
+    <meta property="og:image:width" content="279">
+    <meta property="og:image:height" content="279">
+    <meta property="og:description" content="A Hacker News PWA Client written in Aurelia">
+    <meta property="og:title" content="Aurelia HN">
+    <meta property="og:url" content="http://example.com">
+
     <!-- imported CSS are concatenated and added automatically -->
     <!-- TODO: Setup through webpack so we can import the less file instead -->
     <style type="text/css">
@@ -103,5 +121,16 @@
     <!-- Webpack Dev Server reload -->
     <script src="/webpack-dev-server.js"></script>
     <% } %>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then(function(registration) {
+                console.log('Service Worker Registered');
+          });
+        navigator.serviceWorker.ready.then(function(registration) {
+            console.log('Service Worker Ready');
+        });
+      }
+    </script>
   </body>
 </html>
