@@ -1,12 +1,12 @@
-import { API } from './api/index';
+// import { API } from './api/index';
 
 export class App {
   message = 'Hello World!';
 
   attached() {
-    API.news()
-      .then((res) => {
-        console.log(res);
-      });
+    // API.news()
+    //   .then((res) => {
+    //     console.log(res);
+    //   });
   }
 }
