@@ -4,7 +4,7 @@ An Aurelia implementation of the Hacker News Progressive Web App, done as a subm
 
 <p align="center">
   <!-- <a href="/" target="_blank"> -->
-    <img src="https://raw.githubusercontent.com/justindra/aurelia-hnpwa/master/static/aurelia-logo.svg" width="700px">
+    <img src="./static/aurelia-logo.svg" width="200px">
     <br>
   <!-- </a> -->
 </p>
