@@ -1,9 +1,16 @@
 <template>
-  <ul>
-    <li repeat.for="nav of router.navigation"
-      class="${nav.isActive ? 'active' : ''}">
-      <a href.bind="nav.href">${nav.title}</a>
-    </li>
-  </ul>
-  <router-view></router-view>
+  <header>
+    <nav>
+      <a href="/" class="brand"><img src="/aurelia-logo.svg" alt=""></a>
+      <a repeat.for="nav of router.navigation"
+        href.bind="nav.href"
+        class="${nav.isActive ? 'active' : ''}">
+        ${nav.title}
+      </a>
+      <a href="https://github.com/justindra/aurelia-hnpwa" class="right" target="_blank">Built with Aurelia</a>
+    </nav>
+  </header>
+  <main>
+    <router-view></router-view>
+  </main>
 </template>

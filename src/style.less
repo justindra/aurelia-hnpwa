@@ -1,0 +1,156 @@
+@light-color: #f2f3f5;
+@dark-color: #34495e;
+
+@highlight-color: #ed2b88;
+
+@animation-time: 300ms;
+@max-main-width: 50rem;
+@header-height: 3rem;
+
+@layout-padding: 1rem;
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-size: 15px;
+  background-color: @light-color;
+  margin: 0;
+  padding-top: @header-height;
+}
+
+a, body {
+  color: @dark-color;
+}
+
+a {
+  text-decoration: none;
+  &:hover, &:focus {
+    color: @highlight-color;
+  }
+}
+
+// Header
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: @header-height;
+  background: @highlight-color;
+  z-index: 999;
+  box-shadow: 0 .25rem .25rem rgba(0,0,0,.1);
+
+  nav {
+    margin: 0 auto;
+    max-width: @max-main-width;
+    box-sizing: border-box;
+    height: @header-height;
+
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    color: @light-color;
+    font-weight: 400;
+    opacity: 0.9;
+    transition: opacity @animation-time;
+
+    margin-right: @layout-padding;
+
+    &.active {
+      font-weight: 800;
+      opacity: 1;
+    }
+
+    &:hover, &:focus {
+      color: @light-color;
+      opacity: 1;
+    }
+
+    &.right {
+      margin-right: 0;
+      flex: 1;
+      text-align: right;
+    }
+
+    &.brand {
+      opacity: 1;
+      img {
+        max-width: 2rem;
+        filter: saturate(0) invert(100) brightness(100);
+        opacity: 1;
+      }
+    }
+
+  }
+}
+
+main {
+  max-width: @max-main-width;
+  margin: @layout-padding auto;
+}
+
+.feed-item {
+  background-color: #fff;
+  padding: 20px 30px 20px 80px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  line-height: 20px;
+
+  .score {
+    color: @highlight-color;
+    font-size: 1.1em;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 80px;
+    text-align: center;
+    margin-top: -10px;
+  }
+  
+  .host,
+  .meta {
+    font-size: .85em;
+    color: #828282;
+
+    a {
+      color: #828282;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Animations
+.feed-item {
+  &.au-enter {
+    opacity: 0!important;
+  }
+  &.au-enter-active {
+    animation: fadeIn @animation-time;
+  }
+  &.au-leave-active {
+    animation: fadeOut @animation-time;
+  }
+}
+  
+/* CSS3-Animations */
+@-webkit-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+  
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+  
+@-webkit-keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+  
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}

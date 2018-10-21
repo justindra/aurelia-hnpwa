@@ -10,13 +10,13 @@ export class App {
 
     /* tslint:disable max-line-length */
     config.map([
-      { route: ['', 'top'], name: 'top',        moduleId: PLATFORM.moduleName('pages/top'), nav: true, title: 'Top' },
-      { route: ['new'],     name: 'new',        moduleId: PLATFORM.moduleName('pages/top'), nav: true, title: 'New' },
-      { route: ['show'],    name: 'show',       moduleId: PLATFORM.moduleName('pages/top'), nav: true, title: 'Show' },
-      { route: ['ask'],     name: 'ask',        moduleId: PLATFORM.moduleName('pages/top'), nav: true, title: 'Ask' },
-      { route: ['jobs'],    name: 'jobs',       moduleId: PLATFORM.moduleName('pages/top'), nav: true, title: 'Jobs' },
-      // { route: 'item/:id',  name: 'itemDetail', moduleId: PLATFORM.moduleName('pages/top'), title: 'jobs' },
-      // { route: 'users/:id', name: 'userDetail', moduleId: PLATFORM.moduleName('pages/top'), title: 'jobs' },
+      { route: ['', 'top'], name: 'top',        moduleId: PLATFORM.moduleName('pages/feed'), nav: true, title: 'Top',  settings: { feedType: 'news' } },
+      { route: ['new'],     name: 'new',        moduleId: PLATFORM.moduleName('pages/feed'), nav: true, title: 'New',  settings: { feedType: 'newest' } },
+      { route: ['show'],    name: 'show',       moduleId: PLATFORM.moduleName('pages/feed'), nav: true, title: 'Show', settings: { feedType: 'show' } },
+      { route: ['ask'],     name: 'ask',        moduleId: PLATFORM.moduleName('pages/feed'), nav: true, title: 'Ask',  settings: { feedType: 'ask' } },
+      { route: ['jobs'],    name: 'jobs',       moduleId: PLATFORM.moduleName('pages/feed'), nav: true, title: 'Jobs', settings: { feedType: 'jobs' } },
+      // { route: 'item/:id',  name: 'itemDetail', moduleId: PLATFORM.moduleName('pages/feed'), title: 'jobs' },
+      // { route: 'users/:id', name: 'userDetail', moduleId: PLATFORM.moduleName('pages/feed'), title: 'jobs' },
     ]);
     /* tslint:enable max-line-length */
   }
