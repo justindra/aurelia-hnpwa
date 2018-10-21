@@ -18,7 +18,7 @@ export class App {
       { route: 'ask',       name: 'ask',          moduleId: PLATFORM.moduleName('pages/feed'), nav: true, title: 'Ask',  settings: { feedType: 'ask' } },
       { route: 'jobs',      name: 'jobs',         moduleId: PLATFORM.moduleName('pages/feed'), nav: true, title: 'Jobs', settings: { feedType: 'jobs' } },
       { route: 'item/:id',  name: 'item-detail',  moduleId: PLATFORM.moduleName('pages/item'), title: 'Item' },
-      { route: 'users/:id', name: 'user-detail',  moduleId: PLATFORM.moduleName('pages/feed'), title: 'User' },
+      { route: 'users/:id', name: 'user-detail',  moduleId: PLATFORM.moduleName('pages/user'), title: 'User' },
     ]);
     /* tslint:enable max-line-length */
   }

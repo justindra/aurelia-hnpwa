@@ -1,0 +1,13 @@
+<template>
+  <div class="card item-detail au-animate">
+    <div class="title">User: ${user.id}</div>
+    <div class="meta">
+      <div><span class="label">Created</span>${user.created}</div>
+      <div><span class="label">Karma</span>${user.karma}</div>
+    </div>
+    <div class="description" innerhtml.bind="user.about"></div>
+    <div class="meta">
+      <a href="https://news.ycombinator.com/submitted?id=${user.id}">submissions</a> | <a href="https://news.ycombinator.com/threads?id=${user.id}">comments</a>
+    </div>
+  </div>
+</template>
