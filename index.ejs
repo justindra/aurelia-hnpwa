@@ -6,8 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>">
     <!-- imported CSS are concatenated and added automatically -->
+    <!-- TODO: Setup through webpack so we can import the less file instead -->
+    <style type="text/css">
+      @-ms-viewport {
+        width: device-width;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-size: 15px;
+        background-color: #f2f3f5;
+        margin: 0;
+        padding-top: 3rem;
+      }
+      a,
+      body {
+        color: #34495e;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:hover,
+      a:focus {
+        color: #ed2b88;
+      }
+      pre {
+        overflow: auto;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3rem;
+        background: #ed2b88;
+        z-index: 999;
+        box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
+      }
+      header nav {
+        margin: 0 auto;
+        max-width: 50rem;
+        box-sizing: border-box;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+      }
+      header a {
+        color: #f2f3f5;
+        font-weight: 400;
+        opacity: 0.9;
+        transition: opacity 300ms;
+        margin-right: 1rem;
+      }
+      header a.active {
+        font-weight: 800;
+        opacity: 1;
+      }
+      header a:hover,
+      header a:focus {
+        color: #f2f3f5;
+        opacity: 1;
+      }
+      header a.right {
+        margin-right: 0;
+        flex: 1;
+        text-align: right;
+      }
+      header a.brand {
+        opacity: 1;
+      }
+      header a.brand img {
+        max-width: 2rem;
+        filter: saturate(0) invert(100) brightness(100);
+        opacity: 1;
+      }
+      @media (max-width: 50rem) {
+        nav {
+          padding: 0 1rem;
+        }
+        nav .right {
+          display: none;
+        }
+        main {
+          margin: 0;
+        }
+      }
+    </style>
   </head>
   <body aurelia-app="main">
+    <header>
+      <nav>
+        <a href="/" class="brand"><img src="/aurelia-logo.svg" alt=""></a>
+        <a href="https://github.com/justindra/aurelia-hnpwa" class="right" target="_blank">Built with Aurelia</a>
+      </nav>
+    </header>
     <% if (htmlWebpackPlugin.options.metadata.server) { %>
     <!-- Webpack Dev Server reload -->
     <script src="/webpack-dev-server.js"></script>
