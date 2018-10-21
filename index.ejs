@@ -108,20 +108,46 @@
           margin: 0;
         }
       }
+
+      footer {
+        position: fixed;
+        bottom: -4rem;
+        left: 0;
+        right: 0;
+        background: #eee;
+        /* height: 2rem; */
+        text-align: center;
+        padding: 0.7rem 0;
+        /* border: solid; */
+        transition: bottom  300ms;
+        box-shadow: -3px -2px 0px rgba(0,0,0,0.1);
+      }
+
+      footer > * {
+        opacity: 0.7;
+      }
+
+      .offline footer {
+        bottom: 0;
+      }
     </style>
   </head>
-  <body aurelia-app="main">
-    <header>
-      <nav>
-        <a href="/" class="brand"><img src="/aurelia-logo.svg" alt=""></a>
-        <a href="https://github.com/justindra/aurelia-hnpwa" class="right" target="_blank">Built with Aurelia</a>
-      </nav>
-    </header>
+  <body>
+    <div aurelia-app="main">
+      <header>
+        <nav>
+          <a href="/" class="brand"><img src="/aurelia-logo.svg" alt=""></a>
+          <a href="https://github.com/justindra/aurelia-hnpwa" class="right" target="_blank">Built with Aurelia</a>
+        </nav>
+      </header>
+    </div>
+    <footer>You are currently offline...</footer>
     <% if (htmlWebpackPlugin.options.metadata.server) { %>
     <!-- Webpack Dev Server reload -->
     <script src="/webpack-dev-server.js"></script>
     <% } %>
     <script>
+      // Detect Service Worker
       if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', { scope: '/' })
           .then(function(registration) {
@@ -131,6 +157,19 @@
             console.log('Service Worker Ready');
         });
       }
+
+      window.addEventListener('load', function() {
+        var body = document.getElementsByTagName('body')[0];
+        updateOnlineStatus();
+      
+        function updateOnlineStatus() {
+          var condition = navigator.onLine ? 'online' : 'offline';
+          body.className = condition;
+        }
+      
+        window.addEventListener('online',  updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+      });
     </script>
   </body>
 </html>
