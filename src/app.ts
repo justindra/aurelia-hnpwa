@@ -7,6 +7,8 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router): void {
     this.router = router;
     config.title = 'Aurelia HN';
+    config.options.pushState = true;
+    config.options.root = '/';
 
     /* tslint:disable max-line-length */
     config.map([
