@@ -1,3 +1,4 @@
+import { FeedItem, Item, User } from './interfaces';
 import { Endpoints } from './enums';
 import { HttpClient } from 'aurelia-fetch-client';
 
@@ -24,34 +25,34 @@ export class HNAPI {
     });
   }
 
-  news(page = 1) {
-    return this.client.fetch(`${Endpoints.News}/${page}.json`);
+  news(page = 1): Promise<FeedItem[]> {
+    return this.client.fetch(`${Endpoints.News}/${page}.json`) as any;
   }
 
-  newest(page = 1) {
-    return this.client.fetch(`${Endpoints.Newest}/${page}.json`);
+  newest(page = 1): Promise<FeedItem[]> {
+    return this.client.fetch(`${Endpoints.Newest}/${page}.json`) as any;
   }
 
-  ask(page = 1) {
-    return this.client.fetch(`${Endpoints.Ask}/${page}.json`);
+  ask(page = 1): Promise<FeedItem[]> {
+    return this.client.fetch(`${Endpoints.Ask}/${page}.json`) as any;
   }
 
-  show(page = 1) {
-    return this.client.fetch(`${Endpoints.Show}/${page}.json`);
+  show(page = 1): Promise<FeedItem[]> {
+    return this.client.fetch(`${Endpoints.Show}/${page}.json`) as any;
   }
 
-  jobs(page = 1) {
-    return this.client.fetch(`${Endpoints.Jobs}/${page}.json`);
+  jobs(page = 1): Promise<FeedItem[]> {
+    return this.client.fetch(`${Endpoints.Jobs}/${page}.json`) as any;
   }
 
-  item(id: string) {
+  item(id: string): Promise<Item> {
     if (!id || !id.length) return Promise.reject('No id was given, unable to retrieve item');
-    return this.client.fetch(`${Endpoints.Item}/${id}.json`);
+    return this.client.fetch(`${Endpoints.Item}/${id}.json`) as any;
   }
 
-  user(id: string) {
+  user(id: string): Promise<User> {
     if (!id || !id.length) return Promise.reject('No id was given, unable to retrieve user');
-    return this.client.fetch(`${Endpoints.User}/${id}.json`);
+    return this.client.fetch(`${Endpoints.User}/${id}.json`) as any;
   }
 }
 
