@@ -7,7 +7,6 @@ export class ItemView {
     API.item(params.id)
       .then((res) => {
         this.item = res;
-        console.log(res);
       });
   }
 }

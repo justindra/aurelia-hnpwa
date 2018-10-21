@@ -1,6 +1,6 @@
 <template bindable="comment">
   <div class="item-comment">
-    <div class="meta"><a route-href="route: user-detail; params.bind: { id: comment.user }">${comment.user}</a> ${comment.time_ago}</div>
+    <div class="meta"><a if.bind="comment.user" route-href="route: user-detail; params.bind: { id: comment.user }">${comment.user}</a> ${comment.time_ago}</div>
     <div innerhtml.bind="comment.content"></div>
     <div if.bind="comment.comments.length" class="child">
       <item-comment repeat.for="item of comment.comments" comment.bind="item"></item-comment>
