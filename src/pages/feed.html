@@ -2,7 +2,7 @@
   <div>
     <div repeat.for="item of newsItems" class="feed-item au-animate">
       <div class="score">${item.points || 1}</div>
-      <div class="title">${item.title} <span class="host"><a href="${item.url}">${item.domain}</a></span></div>
+      <div class="title"><a href="${item.url}">${item.title}</a> <span class="host">(${item.domain})</span></div>
       <div class="meta">by <a href="">${item.user}</a> ${item.time_ago} | <a href="">${item.comments_count} comments</a></div>
     </div>
   </div>
