@@ -1,0 +1,12 @@
+<template>
+  <require from="resources/elements/item-comment.html"></require>
+
+  <div class="card item-detail au-animate" if.bind="item">
+    <div><a href="${item.url}" class="title">${item.title}</a> <span class="host">(${item.domain})</span></div>
+    <div class="meta">${item.points} points | by <a route-href="route: user-detail; params.bind: { id: item.user }">${item.user}</a> ${item.time_ago}</div>
+  </div>
+
+  <div class="card item-comments au-animate">
+    <item-comment repeat.for="comment of item.comments" comment.bind="comment"></item-comment>
+  </div>
+</template>

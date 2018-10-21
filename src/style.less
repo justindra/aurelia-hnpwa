@@ -1,4 +1,5 @@
 @light-color: #f2f3f5;
+@gray-color: #828282;
 @dark-color: #34495e;
 
 @highlight-color: #ed2b88;
@@ -26,6 +27,10 @@ a {
   &:hover, &:focus {
     color: @highlight-color;
   }
+}
+
+pre {
+  overflow: auto;
 }
 
 // Header
@@ -90,12 +95,31 @@ main {
   margin: @layout-padding auto;
 }
 
-.feed-item {
+.card {
   background-color: #fff;
-  padding: 20px 30px 20px 80px;
   border-bottom: 1px solid #eee;
+  padding: @layout-padding*1.5 @layout-padding*2;
   position: relative;
   line-height: 20px;
+  margin-bottom: @layout-padding;
+
+  .host,
+  .meta {
+    color: @gray-color;
+
+    a {
+      text-decoration: underline;
+      color: @gray-color;
+      &:hover, &:focus {
+        color: @highlight-color;
+      }
+    }
+  }
+}
+
+.feed-item {
+  padding: 20px 30px 20px 80px;
+  margin-bottom: 0;
 
   .score {
     color: @highlight-color;
@@ -112,20 +136,44 @@ main {
   .host,
   .meta {
     font-size: .85em;
-    color: #828282;
+  }
+}
 
-    a {
-      color: #828282;
-      text-decoration: underline;
-      &:hover, &:focus {
-        color: @highlight-color;
-      }
-    }
+.item-detail {
+  position: sticky;
+  top: @header-height;
+  z-index: 10;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  .title {
+    display: inline;
+    font-size: 1.5em;
+    margin: 0;
+    margin-right: .5em;
+  }
+
+  .meta {
+    margin-top: @layout-padding/2;
+  }
+}
+
+.item-comment {
+  border-bottom: 1px solid #eee;
+  margin-bottom: @layout-padding/2;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .child {
+    margin-left: @layout-padding;
+    padding-left: @layout-padding;
+    border-left: 1px solid #eee;
   }
 }
 
 // Animations
-.feed-item {
+.au-animate {
   &.au-enter {
     opacity: 0!important;
   }

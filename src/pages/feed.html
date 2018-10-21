@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div repeat.for="item of newsItems" class="feed-item au-animate">
+    <div repeat.for="item of newsItems" class="card feed-item au-animate">
       <div class="score">${item.points || 1}</div>
       <div class="title"><a href="${item.url}">${item.title}</a> <span class="host">(${item.domain})</span></div>
-      <div class="meta">by <a href="">${item.user}</a> ${item.time_ago} | <a href="">${item.comments_count} comments</a></div>
+      <div class="meta">by <a route-href="route: user-detail; params.bind: { id: item.user }">${item.user}</a> ${item.time_ago} | <a route-href="route: item-detail; params.bind: { id: item.id }">${item.comments_count} comments</a></div>
     </div>
   </div>
   <div style="margin-top: 1rem; text-align: center;">
