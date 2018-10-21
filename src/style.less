@@ -10,6 +10,10 @@
 
 @layout-padding: 1rem;
 
+@-ms-viewport{
+  width: device-width;
+}
+
 body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   font-size: 15px;
@@ -177,6 +181,10 @@ main {
     padding-left: @layout-padding;
     border-left: 1px solid #eee;
   }
+
+  p {
+    overflow: auto;
+  }
 }
 
 // Animations
@@ -211,4 +219,16 @@ main {
 @keyframes fadeOut {
   0%   { opacity: 1; }
   100% { opacity: 0; }
+}
+
+@media (max-width: @max-main-width) {
+  nav {
+    padding: 0 @layout-padding;
+    .right {
+      display: none;
+    }
+  }
+  main {
+    margin: 0;
+  }
 }
