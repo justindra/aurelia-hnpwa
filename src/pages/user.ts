@@ -1,7 +1,7 @@
 import { User } from './../api/interfaces';
 import { API } from './../api/index';
 
-export class UserView {
+export class UserPage {
   user: User;
 
   activate(params) {

@@ -1,6 +1,6 @@
 import { Item } from './../api/interfaces';
 import { API } from './../api/index';
-export class ItemView {
+export class ItemPage {
   item: Item;
 
   activate(params) {

@@ -2,7 +2,7 @@ import { API } from '../api/index';
 import { FeedItem } from '../api/interfaces';
 import { RoutableComponentDetermineActivationStrategy, activationStrategy } from 'aurelia-router';
 
-export class Feed implements RoutableComponentDetermineActivationStrategy {
+export class FeedPage implements RoutableComponentDetermineActivationStrategy {
   newsItems: FeedItem[] = [];
   feedType: string;
   page: number = 1;
