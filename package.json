@@ -99,6 +99,9 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,ts}",
+      "!src/environment.ts",
+      "!src/main.ts",
+      "!src/sw.js",
       "!**/*.spec.{js,ts}",
       "!**/node_modules/**",
       "!**/test/**",
