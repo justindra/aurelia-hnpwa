@@ -45,8 +45,10 @@ export class HNAPI {
     return this.client.fetch(`${Endpoints.Jobs}/${page}.json`) as any;
   }
 
-  item(id: string): Promise<Item> {
-    if (!id || !id.length) return Promise.reject('No id was given, unable to retrieve item');
+  item(id: number): Promise<Item> {
+    if (typeof id !== 'number') {
+      return Promise.reject('No id was given, unable to retrieve item');
+    }
     return this.client.fetch(`${Endpoints.Item}/${id}.json`) as any;
   }
 

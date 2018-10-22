@@ -1,12 +1,12 @@
-import { Feed } from './feed';
+import { FeedPage } from './feed';
 import { MockedHN } from 'api/__mocks__';
 
 describe('The Feed Page', () => {
-  let feedPage: Feed;
-  let initMock: MockedHN;
+  let feedPage: FeedPage;
+  const initMock: MockedHN = new MockedHN();
+
   beforeEach(() => {
-    feedPage = new Feed();
-    initMock =  new MockedHN();
+    feedPage = new FeedPage();
   });
 
   it('should get the first page of feeds on activate', async () => {

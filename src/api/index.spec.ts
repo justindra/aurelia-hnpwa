@@ -2,10 +2,7 @@ import { MockedHN } from './__mocks__';
 import { API } from './index';
 
 describe('HNAPI', () => {
-  let initMock: MockedHN;
-  beforeAll(() => {
-    initMock =  new MockedHN();
-  });
+  const initMock: MockedHN = new MockedHN();
 
   it('should return news results', () => {
     initMock.news();
@@ -89,7 +86,7 @@ describe('HNAPI', () => {
 
   it('should return a single item', () => {
     initMock.item();
-    return API.item('16493489')
+    return API.item(16493489)
       .then((res: any) => {
         expect(res.title).toEqual('Machine Learning Crash Course');
       });

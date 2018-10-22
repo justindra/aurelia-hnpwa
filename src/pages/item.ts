@@ -7,6 +7,10 @@ export class ItemPage {
     return API.item(params.id)
       .then((res) => {
         this.item = res;
+      })
+      .catch((err) => {
+        console.error(err);
+        this.item = undefined;
       });
   }
 }
