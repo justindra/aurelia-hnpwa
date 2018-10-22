@@ -17,7 +17,7 @@ export class Feed implements RoutableComponentDetermineActivationStrategy {
     this.feedType = routeConfig.settings.feedType;
     this.page = params.page || 1;
     scrollBodyToTop();
-    API[this.feedType]()
+    return API[this.feedType]()
       .then((res) => {
         this.newsItems = res;
       })
@@ -29,7 +29,7 @@ export class Feed implements RoutableComponentDetermineActivationStrategy {
 
   next() {
     this.page += 1;
-    API[this.feedType](this.page)
+    return API[this.feedType](this.page)
       .then((res) => {
         this.newsItems.push.apply(this.newsItems, res);
       });
