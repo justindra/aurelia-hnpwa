@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <a href="/" class="brand"><img src="/aurelia-logo.svg" alt=""></a>
+      <a href="/" class="brand"><img src="/aurelia-logo.svg" alt="Aurelia Logo"></a>
       <a repeat.for="nav of router.navigation"
         href.bind="nav.href"
         class="${nav.isActive ? 'active' : ''}">
