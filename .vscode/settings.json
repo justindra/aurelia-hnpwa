@@ -10,7 +10,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/node_modules": true,
-    "**/dist": true,
-    "**/aurelia_project": true
+    "**/dist": false,
+    "**/aurelia_project": false
   }
 }

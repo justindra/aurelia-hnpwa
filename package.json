@@ -12,7 +12,6 @@
     "aurelia-bootstrapper": "^2.3.0",
     "aurelia-fetch-client": "^1.6.0",
     "bluebird": "^3.5.2",
-    "eslint": "^5.7.0",
     "whatwg-fetch": "^3.0.0"
   },
   "peerDependencies": {},
@@ -120,7 +119,8 @@
   },
   "scripts": {
     "start": "nps",
-    "test": "nps test"
+    "test": "nps test",
+    "webpack": "webpack --help"
   },
   "main": "dist/app.bundle.js",
   "commitlint": {

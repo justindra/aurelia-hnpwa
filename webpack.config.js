@@ -15,7 +15,8 @@ const when = (condition, config, negativeConfig) =>
   condition ? ensureArray(config) : ensureArray(negativeConfig);
 
 // primary config:
-const title = 'Aurelia Navigation Skeleton';
+const title = 'Aurelia HN';
+const description = 'A HackerNews PWA implementation using Aurelia';
 const outDir = path.resolve(__dirname, project.platform.output);
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
@@ -35,7 +36,8 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
   },
   entry: {
     app: ['aurelia-bootstrapper'],
-    vendor: ['bluebird'],
+    api: ['aurelia-fetch-client', 'whatwg-fetch', 'api/index'],
+    vendor: ['bluebird', 'aurelia-animator-css'],
   },
   mode: production ? 'production' : 'development',
   output: {
@@ -99,6 +101,12 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
       })
     ]
   },
+  optimization: {
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    }
+  },
   plugins: [
     ...when(!karma, new DuplicatePackageCheckerPlugin()),
     new AureliaPlugin(),
@@ -116,7 +124,7 @@ module.exports = ({production, server, extractCss, coverage, analyze, karma} = {
       } : undefined,
       metadata: {
         // available in index.ejs //
-        title, server, baseUrl
+        title, server, baseUrl, description
       }
     }),
     ...when(extractCss, new MiniCssExtractPlugin({
