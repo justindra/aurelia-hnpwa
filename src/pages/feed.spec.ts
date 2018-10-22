@@ -20,9 +20,11 @@ describe('The Feed Page', () => {
   });
 
   it('should not set any newsitems on activate if no network', async () => {
+    console.error = jest.fn();
     expect(feedPage.newsItems).toEqual([]);
     await feedPage.activate({}, { settings: { feedType: 'news' } });
 
+    expect(console.error).toHaveBeenCalled();
     expect(feedPage.newsItems.length).toEqual(0);
     expect(feedPage.page).toEqual(1);
   });

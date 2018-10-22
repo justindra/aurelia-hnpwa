@@ -18,8 +18,11 @@ describe('The Item Page', () => {
   });
 
   it('should not have an item if activate errors', async () => {
+    console.error = jest.fn();
     const id = 16493489;
     await itemPage.activate({ id });
+
+    expect(console.error).toHaveBeenCalled();
     expect(itemPage.item).toBeUndefined();
   });
 });

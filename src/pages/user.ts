@@ -8,6 +8,10 @@ export class UserPage {
     return API.user(params.id)
       .then((res) => {
         this.user = res;
+      })
+      .catch((err) => {
+        console.error(err);
+        this.user = undefined;
       });
   }
 }
