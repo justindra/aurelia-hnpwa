@@ -3,10 +3,11 @@
 An Aurelia implementation of the Hacker News Progressive Web App, done as a submission to [HNPWA](https://hnpwa.com/)
 
 <p align="center">
-  <!-- <a href="/" target="_blank"> -->
+  <a href="https://aurelia-hnpwa.justindra.com" target="_blank" rel="noreferrer">
     <img src="./static/aurelia-logo.svg" width="200px">
     <br>
-  <!-- </a> -->
+    https://aurelia-hnpwa.justindra.com
+  </a>
 </p>
 
 ## Details
